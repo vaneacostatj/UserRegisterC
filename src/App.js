@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import { useStateValue } from "./StateProvider";
+import { useEffect } from "react";
+import { actionTypes } from "./Reducer";
+import { auth } from "./components/firebase";
+import { PublicRoutes } from "./routes/PublicRoutes";
+import { PrivateRoutes } from "./routes/PrivateRoutes";
+import { isAuthenticate } from "./routes/auth/authentication";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(props) {
+
+  const [{user}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser)=>{
+      console.log(authUser);
+      if (authUser){
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: authUser,
+        })
+      }
+  
+    }) 
+  },[])
+
+  const isAuth = isAuthenticate();
+
+  return (      
+    <div className="App">    
+      <Navbar/> 
+      {
+        isAuth 
+        ? <PrivateRoutes props={props}/>
+        : <PublicRoutes />
+      }      
     </div>
   );
 }
