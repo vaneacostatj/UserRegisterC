@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
-import { doc, setDoc, deleteDoc, updateDoc, onSnapshot} from "firebase/firestore";
+import { doc, setDoc, deleteDoc, updateDoc, onSnapshot, orderBy, query, collection} from "firebase/firestore";
 import { data as DatABaseF,}  from '../components/firebase'
 import UpdateRegistro from './UpdateRegister';
 import PasoTeoria from './pasoTeoria';
@@ -70,17 +70,18 @@ const ListaUsuarioTeoria = () => {
   }
       
 }
-let UserConduc = [];
+
 
 //-----------------------------------------------------------------------    
 //-----------------------------list--------------------------------------
  const getUser = async () => { 
  
 try{
-   const q = DatABaseF.collection('UserCoducimos')
-   await onSnapshot(q, (querySnapshot)=>{      
+   const q = query(collection(DatABaseF, "UserCoducimos"), orderBy("FechInit"))
+   await onSnapshot(q, (querySnapshot)=>{ 
+    let UserConduc = [];     
     querySnapshot.forEach((doc)=>{   
-      UserConduc.push({...doc.data()});                   
+      UserConduc.push(doc.data());                   
     }) 
     setUserCond(UserConduc)  
   }) 
@@ -146,7 +147,7 @@ useEffect(()=>{
     return (
         <>
         
-            <h1 align="center" >Modulo de introducción ( Teoria ).</h1>
+            <h1 align="center" >MODULO TEÓRICO</h1>
             <Registro AddUser={AddUser}/>
 
             <TableContainer component={Paper} >

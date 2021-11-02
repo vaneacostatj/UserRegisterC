@@ -1,14 +1,14 @@
 import React, { useEffect, useState }  from 'react'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Typography, Grid, Button } from '@material-ui/core';
-import { Controller, useFormContext } from 'react-hook-form'
+import { Grid, Button } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { TextField } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { doc, getDoc } from "firebase/firestore";
-import { data as DatABaseF, dataBase }  from '../components/firebase';
+import { data as DatABaseF }  from '../components/firebase';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 
 const style = {
@@ -91,269 +91,267 @@ const handleSubmit =(e)=>{
     
         <Grid container spacing={3}>
 
-          {/* <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="firstName"
-            label="Nombres"
-            value={users.firstName}
-            id="firstName"
-            />
+      
+          <Grid item xs={12} sm={3}>  
+          <InputLabel id="T1">Clase 1</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T1"
+              label="Clase 1"
+              value={users.T1}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="lastName"
-            label="Apellidos"
-            value={users.lastName}
-            id="lastName"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="document"
-            label="Documento de identidad"
-            value={users.document}
-            id="document"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="categoria"
-            label="Categoria"
-            value={users.categoria}
-            id="categoria"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="tipeUser"
-            label="Tipo de Usuario"
-            value={users.tipeUser}
-            id="tipeUser"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="FechInit"
-            label="Fecha de Inicio"
-            value={users.FechInit}
-            id="FechInit"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="FechEnd"
-            label="Fecha fin aprox."
-            value={users.FechEnd}
-            id="FechEnd"
-            />
-          </Grid> */}
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T1"
-            label="Clase 1"
-            value={users.T1}
-            id="T1"
-            />
+          <Grid item xs={12} sm={3}>     
+
+          <InputLabel id="T2">Clase 2</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T2"
+              label="Clase 1"
+              value={users.T2}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T2"
-            label="Clase 2"
-            value={users.T2}
-            id="T2"
-            />
+          <InputLabel id="T3">Clase 3</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T3"
+              label="Clase 1"
+              value={users.T3}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T3"
-            label="Clase 3"
-            value={users.T3}
-            id="T3"
-            />
+          <InputLabel id="T4">Clase 4</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T4"
+              label="Clase 1"
+              value={users.T4}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T4"
-            label="Clase 4"
-            value={users.T4}
-            id="T4"
-            />
+          <InputLabel id="T5">Clase 5</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T5"
+              label="Clase 1"
+              value={users.T5}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T5"
-            label="Clase 5"
-            value={users.T5}
-            id="T5"
-            />
+          <InputLabel id="T6">Clase 6</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T6"
+              label="Clase 1"
+              value={users.T6}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T6"
-            label="Clase 6"
-            value={users.T6}
-            id="T6"
-            />
+          <InputLabel id="T7">Clase 7</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T7"
+              label="Clase 1"
+              value={users.T7}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T7"
-            label="Clase 7"
-            value={users.T7}
-            id="T7"
-            />
+          <InputLabel id="T8">Clase 8</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T8"
+              label="Clase 1"
+              value={users.T8}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
+          </Grid>
+          <Grid item xs={12} sm={3}> 
+
+          <InputLabel id="T9">Clase 9</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T9"
+              label="Clase 9"
+              value={users.T9}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
+
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T8"
-            label="Clase 8"
-            value={users.T8}
-            id="T8"
-            />
+          <InputLabel id="T10">Clase 10</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T10"
+              label="Clase 1"
+              value={users.T10}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T9"
-            label="Clase 9"
-            value={users.T9}
-            id="T9"
-            />
+          <InputLabel id="T11">Clase 11</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T11"
+              label="Clase 1"
+              value={users.T11}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T10"
-            label="Clase 10"
-            value={users.T10}
-            id="T10"
-            />
+          <InputLabel id="T12">Clase 12</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T12"
+              label="Clase 1"
+              value={users.T12}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T11"
-            label="Clase 11"
-            value={users.T11}
-            id="T11"
-            />
+          <InputLabel id="T13">Clase 13</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T13"
+              label="Clase 1"
+              value={users.T13}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T12"
-            label="Clase 12"
-            value={users.T12}
-            id="T12"
-            />
+          <InputLabel id="T14">Clase 14</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T14"
+              label="Clase 1"
+              value={users.T14}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T13"
-            label="Clase 13"
-            value={users.T13}
-            id="T13"
-            />
+          <InputLabel id="T15">Clase 15</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T15"
+              label="Clase 1"
+              value={users.T15}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T14"
-            label="Clase 14"
-            value={users.T14}
-            id="T14"
-            />
+          <InputLabel id="T16">Clase 16</InputLabel>
+              <Select
+              onChange={handleInputChange}
+              required
+              fullWidth
+              name="T16"
+              label="Clase 1"
+              value={users.T16}              
+            >
+              <MenuItem value={"0 hrs"}>0 hrs</MenuItem><br/>
+              <MenuItem value={"2 hrs"}>2 hrs</MenuItem>
+      
+              </Select>
           </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T15"
-            label="Clase 15"
-            value={users.T15}
-            id="T15"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T16"
-            label="Clase 16"
-            value={users.T16}
-            id="T16"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="examen"
-            label="Examen"
-            value={users.examen}
-            id="examen"
-            />
+          <Grid item xs={12} sm={6}>  
+          <InputLabel id="examen">Examen</InputLabel>
+          <Select
+             onChange={handleInputChange}
+             required
+             fullWidth
+             name="examen"
+             label="Examen"
+             value={users.examen}
+          >
+            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
+            <MenuItem value={"Aprobó"}>Aprobó</MenuItem><br/>
+            {/* <MenuItem value={20}>Aprobó</MenuItem><br/> */}
+            <MenuItem value={"Reprobo"}>Reprobo</MenuItem>
+     
+          </Select>       
+  
           </Grid>
         
           </Grid>

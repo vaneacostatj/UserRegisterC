@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
-import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, } from "firebase/firestore";
+import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, orderBy } from "firebase/firestore";
 import { data as DatABaseF,}  from '../components/firebase'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditData from './EditData';
@@ -78,19 +78,21 @@ const DataUserFinal = () => {
   
 //-----------------------------------------------------------------------    
 //-----------------------------list--------------------------------------
- const getUser = async () => { 
-    let UserConduc = [];
-try{
-  await DatABaseF.collection('UserDataF').onSnapshot((querySnapshot)=>{      
-    querySnapshot.forEach((doc)=>{   
-      UserConduc.push({...doc.data()});                         
-    }) 
-    setUserCond(UserConduc)  
-  }) 
-}catch(e){
-console.log("revisa el get")
-} }
    
+const getUser = async () => { 
+ 
+  try{
+     const q = query(collection(DatABaseF, "UserDataF"), orderBy("FechInit"))
+     await onSnapshot(q, (querySnapshot)=>{ 
+      let UserConduc = [];     
+      querySnapshot.forEach((doc)=>{   
+        UserConduc.push(doc.data());                   
+      }) 
+      setUserCond(UserConduc)  
+    }) 
+  }catch(e){
+  console.log("revisa el get")
+  } }
 //------------------------------DELETE-----------------------------------
 
 const DeleteUserDataF = async (document) => {
@@ -134,8 +136,8 @@ useEffect(()=>{
 
     return (
         <>
-        
-            <h1 align="center" >Base de datos usuarios certificados.</h1>
+        <br/>
+            <h1 align="center" >USUARIOS CERTIFICADOS</h1>
             
 
             <TableContainer component={Paper} >

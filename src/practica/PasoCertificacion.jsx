@@ -9,6 +9,9 @@ import { data as DatABaseF }  from '../components/firebase';
 import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import { AddUserCertif, ClearUserCertif } from '../certificacion/ListaUsuarioCertificacion';
 import { DeleteUserTeoria } from './ListaUsuarioPractica';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 const style = {
     position: 'absolute',
@@ -92,11 +95,13 @@ const handleSubmit =(e)=>{
     
         <Grid container spacing={3}>
 
-          {/* <Grid item xs={12} sm={6}>         
+     
+        <Grid item xs={12} sm={6}>         
             <TextField
             onChange={handleInputChange}
             required
             fullWidth
+            disabled
             name="firstName"
             label="Nombres"
             value={users.firstName}
@@ -107,6 +112,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="lastName"
             label="Apellidos"
@@ -118,6 +124,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="document"
             label="Documento de identidad"
@@ -129,6 +136,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="categoria"
             label="Categoria"
@@ -140,6 +148,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="tipeUser"
             label="Tipo de Usuario"
@@ -151,6 +160,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="FechInit"
             label="Fecha de Inicio"
@@ -162,200 +172,15 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="FechEnd"
             label="Fecha fin aprox."
             value={users.FechEnd}
             id="FechEnd"
             />
-          </Grid> */}
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T1"
-            label="Clase 1"
-            value={users.T1}
-            id="T1"
-            />
           </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T2"
-            label="Clase 2"
-            value={users.T2}
-            id="T2"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T3"
-            label="Clase 3"
-            value={users.T3}
-            id="T3"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T4"
-            label="Clase 4"
-            value={users.T4}
-            id="T4"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T5"
-            label="Clase 5"
-            value={users.T5}
-            id="T5"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T6"
-            label="Clase 6"
-            value={users.T6}
-            id="T6"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T7"
-            label="Clase 7"
-            value={users.T7}
-            id="T7"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T8"
-            label="Clase 8"
-            value={users.T8}
-            id="T8"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T9"
-            label="Clase 9"
-            value={users.T9}
-            id="T9"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T10"
-            label="Clase 10"
-            value={users.T10}
-            id="T10"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T11"
-            label="Clase 11"
-            value={users.T11}
-            id="T11"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T12"
-            label="Clase 12"
-            value={users.T12}
-            id="T12"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T13"
-            label="Clase 13"
-            value={users.T13}
-            id="T13"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T14"
-            label="Clase 14"
-            value={users.T14}
-            id="T14"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T15"
-            label="Clase 15"
-            value={users.T15}
-            id="T15"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T16"
-            label="Clase 16"
-            value={users.T16}
-            id="T16"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="examen"
-            label="Examen"
-            value={users.examen}
-            id="examen"
-            />
-          </Grid>
+ 
         
           </Grid>
         <div style={{display: "flex", justifyContent:"space-between", marginTop:"2rem"}}>          
@@ -372,3 +197,7 @@ const handleSubmit =(e)=>{
 }
 
 export default PasoCertif;
+
+
+
+

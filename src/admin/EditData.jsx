@@ -1,14 +1,14 @@
 import React, { useEffect, useState }  from 'react'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Typography, Grid, Button } from '@material-ui/core';
-import { Controller, useFormContext } from 'react-hook-form'
+import { Grid, Button } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { doc, getDoc } from "firebase/firestore";
 import { data as DatABaseF, dataBase }  from '../components/firebase';
+import { CertifSelect1, CertifSelect2, CertifSelect3 } from '../teoria/prueba';
 
 
 const style = {
@@ -172,6 +172,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="T1"
             label="Hrs Teoricas"
@@ -183,6 +184,7 @@ const handleSubmit =(e)=>{
             <TextField
             onChange={handleInputChange}
             required
+            disabled
             fullWidth
             name="T2"
             label="Hrs Practicas"
@@ -191,7 +193,7 @@ const handleSubmit =(e)=>{
             />
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
+            <CertifSelect1
             onChange={handleInputChange}
             required
             fullWidth
@@ -202,7 +204,7 @@ const handleSubmit =(e)=>{
             />
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
+            <CertifSelect2
             onChange={handleInputChange}
             required
             fullWidth
@@ -213,7 +215,7 @@ const handleSubmit =(e)=>{
             />
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <TextField
+            <CertifSelect3
             onChange={handleInputChange}
             required
             fullWidth

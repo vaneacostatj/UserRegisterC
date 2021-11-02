@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
-import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, } from "firebase/firestore";
+import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, orderBy } from "firebase/firestore";
 import { data as DatABaseF,}  from '../components/firebase'
 import EditPractica from './EditPractica';
 import PasoCertif from './PasoCertificacion';
@@ -104,19 +104,21 @@ const ListaUsuarioPractica = () => {
   
 //-----------------------------------------------------------------------    
 //-----------------------------list--------------------------------------
- const getUser = async () => { 
-    let UserConduc = [];
-try{
-  await DatABaseF.collection('UserTeoria').onSnapshot((querySnapshot)=>{      
-    querySnapshot.forEach((doc)=>{   
-      UserConduc.push({...doc.data()});                         
+
+const getUser = async () => { 
+ 
+  try{
+     const q = query(collection(DatABaseF, "UserTeoria"), orderBy("FechInit"))
+     await onSnapshot(q, (querySnapshot)=>{ 
+      let UserConduc = [];     
+      querySnapshot.forEach((doc)=>{   
+        UserConduc.push(doc.data());                   
+      }) 
+      setUserCond(UserConduc)  
     }) 
-    setUserCond(UserConduc)  
-  }) 
-}catch(e){
-console.log("revisa el get")
-} }
-   
+  }catch(e){
+  console.log("revisa el get")
+  } }
 
 
 //-----------------------------------------------------------------------
@@ -152,7 +154,7 @@ useEffect(()=>{
     return (
         <>
         
-            <h1 align="center" >Modulo práctico.</h1>
+            <h1 align="center" >MODULO PRÁCTICO</h1>
             
 
             <TableContainer component={Paper} >

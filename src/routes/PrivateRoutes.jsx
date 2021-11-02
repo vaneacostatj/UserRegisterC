@@ -13,11 +13,13 @@ import VistaCadmin from '../vistas/VistaCadmin';
 import VistaUadmin from '../vistas/VistaUadmin';
 import VistaUserFinal from '../admin/VistaUserF'
 import { isAuthenticate } from './auth/authentication';
+// import { isAuthenticate } from './auth/authentication';
+// import { useStateValue } from '../StateProvider';
 
 
 export const PrivateRoutes = (props) => {
-    const isAuth = isAuthenticate();
-
+    // const [{user}, dispatch] = useStateValue();   
+    const isAuth = isAuthenticate();   
     return (
         <Switch>
             <HelperRoutesPrivate exact path="/Home" component={VistaUserFinal}/>

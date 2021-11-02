@@ -150,7 +150,8 @@ const initialStateValues = {
             id="tipeUser"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>         
+          <Grid item xs={12} sm={6}>
+            <h5>AAAA-MM-DD</h5>     
             <TextField
             onChange={handleInputChange}
             required
@@ -161,7 +162,8 @@ const initialStateValues = {
             id="FechInit"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>         
+          <Grid item xs={12} sm={6}>
+          <h5>AAAA-MM-DD</h5>             
             <TextField
             onChange={handleInputChange}
             required

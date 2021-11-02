@@ -8,13 +8,15 @@ import 'firebase/compat/database';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCLtCFR7XpVsBMcLeD00Iybp1DTAzNFTrs",
-    authDomain: "coducimosescuela.firebaseapp.com",
-    projectId: "coducimosescuela",
-    storageBucket: "coducimosescuela.appspot.com",
-    messagingSenderId: "716429173545",
-    appId: "1:716429173545:web:bfb9213f7d4a5346fb4d38"
-  };
+  apiKey: "AIzaSyBnmP8gVlVb0ByIsu_LAp4CDk5bfv-21wA",
+  authDomain: "coducimosescuela-fcfc4.firebaseapp.com",
+  projectId: "coducimosescuela-fcfc4",
+  storageBucket: "coducimosescuela-fcfc4.appspot.com",
+  messagingSenderId: "377717975748",
+  appId: "1:377717975748:web:2824a4b27ea395efdbf791"
+};
+
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();

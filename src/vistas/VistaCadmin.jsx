@@ -144,11 +144,11 @@ function DashboardContent() {
           &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Certificación" />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>  
+        {/* <ListItem disablePadding>  
           <ListItemButton component="a" href="/UserAdmin">
           &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Crear Usuario" />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/Home">
           &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Vista de usuarios" />

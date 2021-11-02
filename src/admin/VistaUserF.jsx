@@ -135,7 +135,7 @@ useEffect(()=>{
     return (
         <>
         <br/><br/>
-            <h1 align="center" >Usuarios certificados.</h1>
+            <h1 align="center" >USUARIOS CERTIFICADOS</h1>
             <br/>
 
             <TableContainer component={Paper} >
