@@ -3,12 +3,14 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Grid, Button } from '@material-ui/core';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { doc, getDoc } from "firebase/firestore";
-import { data as DatABaseF, dataBase }  from '../components/firebase';
-import { CertifSelect1, CertifSelect2, CertifSelect3 } from '../teoria/prueba';
+import { data as DatABaseF, }  from '../components/firebase';
+
 
 
 const style = {
@@ -192,38 +194,51 @@ const handleSubmit =(e)=>{
             id="T2"
             />
           </Grid>
-          <Grid item xs={12} sm={3}>         
-            <CertifSelect1
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T3"
-            label="Examenes medicos"
-            value={users.T3}
-            id="T3"
-            />
+          <Grid item xs={12} sm={6}>  
+          <InputLabel id="T3">Examenes medicos</InputLabel>
+          <Select
+                onChange={handleInputChange}
+                required
+                fullWidth
+                name="T3"
+                label="Examenes medicos"
+                value={users.T3}
+          >
+            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
+            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+     
+          </Select>       
+          </Grid>
+          <Grid item xs={12} sm={3}>  
+
+             <InputLabel id="T4">Huella</InputLabel>
+          <Select
+                onChange={handleInputChange}
+                required
+                fullWidth
+                name="T4"
+                label="Huella"
+                value={users.T4}
+          >
+            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
+            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+     
+          </Select>        
           </Grid>
           <Grid item xs={12} sm={3}>         
-            <CertifSelect2
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T4"
-            label="Huella"
-            value={users.T4}
-            id="T4"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <CertifSelect3
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T5"
-            label="Fotografia"
-            value={users.T5}
-            id="T5"
-            />
+          <InputLabel id="T5">Fotografia</InputLabel>
+          <Select
+                onChange={handleInputChange}
+                required
+                fullWidth
+                name="T5"
+                label="Fotografia"
+                value={users.T5}
+          >
+            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
+            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+     
+          </Select> 
           </Grid>
           {/* <Grid item xs={12} sm={3}>         
             <TextField

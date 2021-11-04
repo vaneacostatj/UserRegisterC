@@ -19,7 +19,7 @@ import { isAuthenticate } from './auth/authentication';
 
 export const PrivateRoutes = (props) => {
     // const [{user}, dispatch] = useStateValue();   
-    const isAuth = isAuthenticate();   
+    var isAuth = sessionStorage.getItem('userAct');
     return (
         <Switch>
             <HelperRoutesPrivate exact path="/Home" component={VistaUserFinal}/>
@@ -34,7 +34,7 @@ export const PrivateRoutes = (props) => {
             <HelperRoutesPrivate exact path="/CertifAdmin" component={VistaCadmin}/>
             <HelperRoutesPrivate exact path="/UserAdmin" component={VistaUadmin}/> 
             <Route exact path="*" render={()=>{
-                 return <Redirect to={isAuth ? "/Home" : "/"}/>
+                 return <Redirect to={isAuth !== "null" ? "/Home" : "/signIn"}/>
             }}/>  
         </Switch>
     )

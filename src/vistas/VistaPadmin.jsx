@@ -7,20 +7,15 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
+import CarRentalIcon from '@mui/icons-material/CarRental';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import ListItemButton from '@mui/material/ListItemButton';
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import HomeIcon from '@mui/icons-material/Home';
-import FoodBankIcon from '@mui/icons-material/FoodBank';
 import GroupIcon from '@mui/icons-material/Group';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
 import ListaUsuarioPractica from '../practica/ListaUsuarioPractica';
 
 
@@ -130,17 +125,17 @@ function DashboardContent() {
         </ListItem>
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/TeoAdmin">
-          &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Teorico" />
+          &nbsp;&nbsp; <MenuBookIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Teorico" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/PracAdmin">
-          &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Practico" />
+          &nbsp;&nbsp; <CarRentalIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Practico" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/CertifAdmin">
-          &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Certificación" />
+          &nbsp;&nbsp; <VerifiedUserIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Certificación" />
           </ListItemButton>
         </ListItem>
         {/* <ListItem disablePadding>  

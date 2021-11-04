@@ -8,13 +8,13 @@ import { HelperRoutePublic } from './HelperRoutes'
 
 
 export const PublicRoutes = () => {
-    const isAuth = isAuthenticate();   
+    var isAuth = sessionStorage.getItem('userAct');
     return (
         <Switch>
             <HelperRoutePublic exact path="/" component={VistaUserFinal}/>
             <HelperRoutePublic exact path="/SignIn" component={SignIn}/>
             <Route exact path="*" render={()=>{
-                return <Redirect to={isAuth ? "/Home" : "/"}/>
+                return <Redirect to={isAuth !== "null" ? "/Home" : "/signIn"}/>
             }}/>           
         </Switch>
     )

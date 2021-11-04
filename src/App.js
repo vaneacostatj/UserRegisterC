@@ -11,7 +11,7 @@ import { isAuthenticate } from "./routes/auth/authentication";
 function App(props) {
 
   const [{user}, dispatch] = useStateValue();
-
+  
   useEffect(() => {
     auth.onAuthStateChanged((authUser)=>{
       console.log(authUser);
@@ -20,18 +20,19 @@ function App(props) {
           type: actionTypes.SET_USER,
           user: authUser,
         })
+      } else {
+        sessionStorage.setItem('userAct', 'null');
       }
   
     }) 
   },[])
 
-  const isAuth = isAuthenticate();
-
+  var isAuth = sessionStorage.getItem('userAct');
   return (      
     <div className="App">    
       <Navbar/> 
       {
-        isAuth 
+        (isAuth !== "null" )
         ? <PrivateRoutes props={props}/>
         : <PublicRoutes />
       }      

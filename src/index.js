@@ -8,7 +8,9 @@ import reducer, { initialState } from './Reducer';
 import './components/firebase';
 import { BrowserRouter } from 'react-router-dom';
 
+
 ReactDOM.render(
+ 
   <BrowserRouter>
     <StateProvider initialState={initialState} reducer={reducer}>
     <App />

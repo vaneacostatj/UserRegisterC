@@ -23,6 +23,7 @@ export default function Navbar() {
         type: actionTypes.SET_USER,
         user: null,
       });
+      sessionStorage.setItem('userAct', 'null');
       history.push("/");
     }
   }
@@ -57,7 +58,7 @@ export default function Navbar() {
    if (userid === "qEupmfuBDqbDriYQTjyEUFH7bV12")   
        {history.push("/Teoria"); return} 
     else  
-        { history.push("/"); }        
+        { history.push("/");}        
   }
 
 
@@ -88,7 +89,7 @@ export default function Navbar() {
           <Typography variant="h6" component="div">
                 Bienvenido {user? user.email : "☺"}
                 </Typography>
-          <Link to="SignIn">
+          <Link to="signIn">
                 <Button color="inherit" onClick={salir}>{user? "Sign Out" : "Sign In"}</Button>
           </Link>
         </Toolbar>

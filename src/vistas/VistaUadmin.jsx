@@ -7,12 +7,9 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
+import CarRentalIcon from '@mui/icons-material/CarRental';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -128,12 +125,12 @@ function DashboardContent() {
         </ListItem>
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/TeoCertif">
-          &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Teoria" />
+          &nbsp;&nbsp; <MenuBookIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Teoria" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>  
           <ListItemButton component="a" href="/PracCertif">
-          &nbsp;&nbsp; <GroupIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Practica" />
+          &nbsp;&nbsp; <CarRentalIcon/>&nbsp;&nbsp;&nbsp; &nbsp;<ListItemText primary="Practica" />
           </ListItemButton>
         </ListItem>
         {/* <ListItem disablePadding>  
