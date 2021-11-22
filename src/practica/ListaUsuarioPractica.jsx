@@ -181,7 +181,7 @@ useEffect(()=>{
             <StyledTableCell align="center">13</StyledTableCell>
             <StyledTableCell align="center">14</StyledTableCell>
             <StyledTableCell align="center">15</StyledTableCell>
-            <StyledTableCell align="center">16</StyledTableCell>
+           
             <StyledTableCell align="center">Examen</StyledTableCell>
             <StyledTableCell align="center">Acciones</StyledTableCell>
 
@@ -212,7 +212,7 @@ useEffect(()=>{
               <StyledTableCell align="center">{items.T13}</StyledTableCell>
               <StyledTableCell align="center">{items.T14}</StyledTableCell>
               <StyledTableCell align="center">{items.T15}</StyledTableCell>
-              <StyledTableCell align="center">{items.T16}</StyledTableCell>
+             
               <StyledTableCell align="center">{items.examen}</StyledTableCell>
               <StyledTableCell align="center">
               <Button border="none"          

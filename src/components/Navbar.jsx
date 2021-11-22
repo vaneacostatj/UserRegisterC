@@ -46,16 +46,16 @@ export default function Navbar() {
   const RedirecUser =()=>{
     
    console.log(userid, "entrega usuario");
-   if (userid === "ZZTKpLy7UUaNYDf8mBEDJLVMD3K3")
+   if (userid === "gtsFTbKpe1f6ivhsVGzc17O2AvW2")
        {history.push("/Admin"); return }
       
-   if (userid === "jPYKuafB8nRhCzrC5D73nKpc41y2" ) 
+   if (userid === "uRwDeDgzZHWZ7TRPyAOTSdDRuPU2" ) 
       {history.push("/Certif"); return}
       
-   if (userid === "9oEGe01qgYeSXu04HlmJ5C3w5Bl1")   
+   if (userid === "c8pWFGi61gR24ELguII2S8ug5952")   
        {history.push("/Practica"); return}
       
-   if (userid === "qEupmfuBDqbDriYQTjyEUFH7bV12")   
+   if (userid === "PnAAOTDR6vPbaABZNucSuEHx8Df2")   
        {history.push("/Teoria"); return} 
     else  
         { history.push("/");}        

@@ -8,12 +8,12 @@ import 'firebase/compat/database';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBnmP8gVlVb0ByIsu_LAp4CDk5bfv-21wA",
-  authDomain: "coducimosescuela-fcfc4.firebaseapp.com",
-  projectId: "coducimosescuela-fcfc4",
-  storageBucket: "coducimosescuela-fcfc4.appspot.com",
-  messagingSenderId: "377717975748",
-  appId: "1:377717975748:web:2824a4b27ea395efdbf791"
+  apiKey: "AIzaSyDF18eUtG6g8m7K5LC1juzo9kDmQx8PCXQ",
+  authDomain: "condudb-4b5ae.firebaseapp.com",
+  projectId: "condudb-4b5ae",
+  storageBucket: "condudb-4b5ae.appspot.com",
+  messagingSenderId: "1043950141458",
+  appId: "1:1043950141458:web:cfdb042d40464178a418cb"
 };
 
 

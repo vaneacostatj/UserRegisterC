@@ -62,7 +62,11 @@ export const ClearUserData = async (users)=>{
     await updateDoc(UpdateUserRef,{
       T1 : 'Completada',
       T2 : 'Completada',
+      T3 : 'Ok',
+      T4 : 'Ok',
+      T5 : 'Ok'
     });
+
   } catch(e){
     console.log("revisa el codigo")
   }

@@ -179,7 +179,7 @@ const handleSubmit =(e)=>{
             id="FechEnd"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>  
+         {/*  <Grid item xs={12} sm={6}>  
           <InputLabel id="T3">Examenes medicos</InputLabel>
           <Select
                 onChange={handleInputChange}
@@ -224,7 +224,7 @@ const handleSubmit =(e)=>{
             <MenuItem value={"Entregado"}>Entregado</MenuItem>            
      
           </Select> 
-          </Grid>
+          </Grid> */}
       
           </Grid>
         <div style={{display: "flex", justifyContent:"space-between", marginTop:"2rem"}}>          
