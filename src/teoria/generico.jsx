@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Registro from './Registro'
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,20 +8,20 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
-import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, orderBy } from "firebase/firestore";
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import { doc, setDoc, deleteDoc, updateDoc, onSnapshot, orderBy, query, collection} from "firebase/firestore";
 import { data as DatABaseF,}  from '../components/firebase'
-import EditCertif from './EditCertif';
-import PasoData from './PasoData';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
-
-
-
+const Input = styled('input')({
+  display: 'none',
+});
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.info.light,
+    backgroundColor: theme.palette.secondary.main,
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -37,75 +38,85 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-//--------------------------------------------------------------------------------------------
-// ---------------------------ADD----------------------------------------
-export const AddUserCertif= async (users) => {  
-    let document1 = users.document;
-    try{
-      await setDoc(doc(DatABaseF,"UserCERTIF", document1), users);
-     console.log(users, "agregado");
-    
-    }catch(e){
-      console.log("no conecto")
-    }
-        
-  };
-//----------------------------LIMPIAR CAMPOS---------------------------------
-export const ClearUserCertif = async (users)=>{
-  let updateDocument = users.document;
-  try{
-    console.log(users, "actualiza")
-    const UpdateUserRef = doc(DatABaseF, "UserCERTIF", updateDocument);
-    await updateDoc(UpdateUserRef,{
-      T3 : 'Pendiente',
-      T4 : 'Pendiente',
-      T5 : 'Pendiente',
-    });
-  } catch(e){
-    console.log("revisa el codigo")
-  }
 
-}
-//----------------------------------------------------------------------
 //------------------------------DELETE-----------------------------------
 
-export const DeleteUserCERTIF = async (document) => {
+export const DeleteUser = async (document) => {
     
   console.log(document)
   if(window.confirm("¿ estas seguro ?")){
-    await deleteDoc(doc(DatABaseF, "UserCERTIF", document));
- 
+    await deleteDoc(doc(DatABaseF, "UserCoducimos", document));  
   }
 
 }
+//--------------------------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------
-
-
-const ListaUsuarioCertif = () => {
+const Generico = () => {
   
 // window.location.replace('');  
 //refresca la pagina
 
   let [UserCond, setUserCond] = useState([]);
   
+// ---------------------------ADD----------------------------------------
+
+  
+  const AddUser = async (users) => {  
+  let document1 = users.document;
+  try{
+    await setDoc(doc(DatABaseF,"UserCoducimos", document1), users);
+   console.log(users, "agregado");
+  
+  }catch(e){
+    console.log("no conecto")
+  }
+      
+}
+
+
 //-----------------------------------------------------------------------    
 //-----------------------------list--------------------------------------
-
-const getUser = async () => { 
+ const getUser = async () => { 
  
-  try{
-     const q = query(collection(DatABaseF, "UserCERTIF"), orderBy("FechInit"))
-     await onSnapshot(q, (querySnapshot)=>{ 
-      let UserConduc = [];     
-      querySnapshot.forEach((doc)=>{   
-        UserConduc.push(doc.data());                   
-      }) 
-      setUserCond(UserConduc)  
+try{
+   const q = query(collection(DatABaseF, "UserCoducimos"), orderBy("FechInit"))
+   await onSnapshot(q, (querySnapshot)=>{ 
+    let UserConduc = [];     
+    querySnapshot.forEach((doc)=>{   
+      UserConduc.push(doc.data());                   
     }) 
-  }catch(e){
-  console.log("revisa el get")
-  } }
+    setUserCond(UserConduc)  
+  }) 
+}catch(e){
+console.log("revisa el get")
+} }
+   
+// const getOnline =async ()=>{
+// try{
+//   const q = query(collection(DatABaseF, "UserCoducimos"));
+//   onSnapshot(q, (snapshot) => {
+//   snapshot.docChanges().forEach((change) => {
+//     if (change.type === "added") {
+//         console.log("New city: ", change.doc.data()); 
+//         return change.doc.data();
+//     }
+//     if (change.type === "modified") {
+//         console.log("Modified city: ", change.doc.data());  
+//         return change.doc.data();       
+//     }
+//     if (change.type === "removed") {
+//         console.log("Removed city: ", change.doc.data()); 
+//         return change.doc.data();       
+//     }
+//     UserConduc.join(change.doc.data())
+//     setUserCond(UserConduc) 
+//   });
+// });}
+// catch(e){console.log("revisa el getOnline")}
+// }
+
+//-----------------------------------------------------------------------
+
 
 //-----------------------------------------------------------------------
 //-------------------------------UPDATE----------------------------------
@@ -119,20 +130,13 @@ const UpdateUser = async (users)=>{
   let updateDocument = users.document;
   try{
     console.log(users, "actualiza")
-    const UpdateUserRef = doc(DatABaseF, "UserCERTIF", updateDocument);
+    const UpdateUserRef = doc(DatABaseF, "UserCoducimos", updateDocument);
     await updateDoc(UpdateUserRef, users);
   } catch(e){
     console.log("revisa el codigo")
   }
 
 }
-
-//--------------------------------------------------------
-
-useEffect(()=>{
-   getUser()
-   console.log("actualiza en tiempo real")    
-},[])
 
 //-----------------------------------------------------------------------
 
@@ -149,17 +153,32 @@ function search(row){
     );
 }
 //-------------------------------------
+useEffect(()=>{
+   getUser()
+   console.log("actualiza en tiempo real")    
+},[]);
+
+
 //-----------------------------------------------------------------------
 
     return (
         <>
         
-            <h1 align="center" >CERTIFICACIÓN</h1>
+            <h1 align="center" >INGRESO DE USUARIOS</h1>
             <div>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;<FilterListOutlinedIcon fontSize="small"/>&nbsp;&nbsp;<b>FILTRAR</b>&nbsp;&nbsp;&nbsp;</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text/" value={q} onChange={(e)=> setQ(e.target.value)}/>
+             &nbsp;&nbsp;&nbsp;&nbsp;<input type="text/" value={q} onChange={(e)=> setQ(e.target.value)}/> 
             </div>
-            <br/>
+            <div align="right">
+            &nbsp;&nbsp;&nbsp;&nbsp;<Registro AddUser={AddUser} /> &nbsp;&nbsp;&nbsp;&nbsp;
+             <label htmlFor="contained-button-file">
+              <Input accept="file/*" id="contained-button-file" multiple type="file" />
+              <Button variant="contained" component="span">
+                Cargar Archivo
+              </Button>
+              </label>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
             <TableContainer component={Paper} >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -169,19 +188,17 @@ function search(row){
             <StyledTableCell>Nombre del Usuario</StyledTableCell>
             <StyledTableCell >Documento de identidad</StyledTableCell>
             <StyledTableCell align="center">Categoria</StyledTableCell>
-            <StyledTableCell align="center">Fecha/ Inicio</StyledTableCell>
-            <StyledTableCell align="center">Fecha/ fin estimado</StyledTableCell>
-            <StyledTableCell align="center">Tipo de usuario</StyledTableCell>
-            <StyledTableCell align="center">Examenes medicos</StyledTableCell>
-            <StyledTableCell align="center">Huella</StyledTableCell>
-            <StyledTableCell align="center">Fotografia</StyledTableCell>
-            <StyledTableCell align="center">Acciones</StyledTableCell>
+            <StyledTableCell>Fecha / Ingreso</StyledTableCell>
+            <StyledTableCell align="center">Horas</StyledTableCell>           
+            <StyledTableCell align="center">Examen</StyledTableCell>
+            
+
 
           </TableRow>
         </TableHead>
         <TableBody>
           
-        {search (UserCond).map((items) => (
+        {search(UserCond).map((items) => (
             <StyledTableRow key={items.document}>
               <StyledTableCell component="th" scope="row">
               {items.firstName}&nbsp;{items.lastName}
@@ -189,24 +206,9 @@ function search(row){
               <StyledTableCell align="center">{items.document}</StyledTableCell>
               <StyledTableCell align="center">{items.categoria}</StyledTableCell>
               <StyledTableCell align="center">{items.FechInit}</StyledTableCell>
-              <StyledTableCell align="center">{items.FechEnd}</StyledTableCell>
-              <StyledTableCell align="center">{items.tipeUser}</StyledTableCell>
-              <StyledTableCell align="center">{items.T3}</StyledTableCell>
-              <StyledTableCell align="center">{items.T4}</StyledTableCell>
-              <StyledTableCell align="center">{items.T5}</StyledTableCell>
-              <StyledTableCell align="center">
-              <Button border="none"          
-              onClick={()=>setid(items.document)} >
-              <EditCertif {...{UpdateUser, getUser, id}}/> 
-              </Button>
-            
-              <Button onClick={()=>setid(items.document)}>
-              <PasoData {...{getUser, id}}/>
-              </Button>
-                
-                
-              </StyledTableCell>
-
+              <StyledTableCell align="center">{items.T1}</StyledTableCell>              
+              <StyledTableCell align="center">{items.examen}</StyledTableCell>
+             
             </StyledTableRow>
           ))}
 
@@ -214,12 +216,12 @@ function search(row){
         </TableBody>
       </Table>
     </TableContainer>
-          
+            
         </>
     )
 }
 
-export default ListaUsuarioCertif;
+export default Generico;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

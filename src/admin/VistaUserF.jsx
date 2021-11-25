@@ -10,11 +10,11 @@ import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, } from "firebase/firestore";
 import { data as DatABaseF,}  from '../components/firebase'
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditData from './EditData';
+import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
 
-
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 
 
@@ -40,6 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 //--------------------------------------------------------------------------------------------
 // ---------------------------ADD----------------------------------------
 export const AddUserData= async (users) => {  
+    
     let document1 = users.document;
     try{
       await setDoc(doc(DatABaseF,"UserDataF", document1), users);
@@ -55,6 +56,7 @@ export const AddUserData= async (users) => {
 //-----------------------------------------------------------------------
 //----------------------------LIMPIAR CAMPOS---------------------------------
 export const ClearUserData = async (users)=>{
+
   let updateDocument = users.document;
   try{
     console.log(users, "actualiza")
@@ -75,7 +77,7 @@ const VistaUserFinal = () => {
 //refresca la pagina
 
   let [UserCond, setUserCond] = useState([]);
-  
+  const [q, setQ]=useState("");
 //-----------------------------------------------------------------------    
 //-----------------------------list--------------------------------------
  const getUser = async () => { 
@@ -128,7 +130,18 @@ useEffect(()=>{
    getUser()
    console.log("actualiza en tiempo real")    
 },[])
+//-----------------------------------------------------------------------
 
+function search(row){
+  return row.filter(
+    (row) => 
+    row.firstName.toLowerCase().indexOf(q) > - 1 ||
+    row.lastName.toLowerCase().indexOf(q) > - 1 ||
+    row.categoria.toLowerCase().indexOf(q) > - 1  ||
+    row.FechInit.toLowerCase().indexOf(q) > - 1 ||
+    row.tipeUser.toLowerCase().indexOf(q) > - 1     
+    );
+}
 
 //-----------------------------------------------------------------------
 
@@ -136,6 +149,11 @@ useEffect(()=>{
         <>
         <br/><br/>
             <h1 align="center" >USUARIOS CERTIFICADOS</h1>
+            <br/>
+            <div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<FilterListOutlinedIcon fontSize="small"/>&nbsp;&nbsp;<b>FILTRAR</b>&nbsp;&nbsp;&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text/" value={q} onChange={(e)=> setQ(e.target.value)}/>
+            </div>
             <br/>
 
             <TableContainer component={Paper} >
@@ -159,7 +177,7 @@ useEffect(()=>{
         </TableHead>
         <TableBody>
           
-        {UserCond.map((items) => (
+        {search(UserCond).map((items) => (
             <StyledTableRow key={items.document}>
               <StyledTableCell component="th" scope="row">
               {items.firstName}&nbsp;{items.lastName}
@@ -181,8 +199,7 @@ useEffect(()=>{
         </TableBody>
       </Table>
     </TableContainer>
-          
-        </>
+    </>
     )
 }
 

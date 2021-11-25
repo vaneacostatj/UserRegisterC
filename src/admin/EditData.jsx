@@ -205,7 +205,7 @@ const handleSubmit =(e)=>{
                 value={users.T3}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select>       
           </Grid>
@@ -221,7 +221,7 @@ const handleSubmit =(e)=>{
                 value={users.T4}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select>        
           </Grid>
@@ -236,143 +236,10 @@ const handleSubmit =(e)=>{
                 value={users.T5}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select> 
-          </Grid>
-          {/* <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T6"
-            label="Clase 6"
-            value={users.T6}
-            id="T6"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T7"
-            label="Clase 7"
-            value={users.T7}
-            id="T7"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T8"
-            label="Clase 8"
-            value={users.T8}
-            id="T8"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T9"
-            label="Clase 9"
-            value={users.T9}
-            id="T9"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T10"
-            label="Clase 10"
-            value={users.T10}
-            id="T10"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T11"
-            label="Clase 11"
-            value={users.T11}
-            id="T11"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T12"
-            label="Clase 12"
-            value={users.T12}
-            id="T12"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T13"
-            label="Clase 13"
-            value={users.T13}
-            id="T13"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T14"
-            label="Clase 14"
-            value={users.T14}
-            id="T14"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T15"
-            label="Clase 15"
-            value={users.T15}
-            id="T15"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="T16"
-            label="Clase 16"
-            value={users.T16}
-            id="T16"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>         
-            <TextField
-            onChange={handleInputChange}
-            required
-            fullWidth
-            name="examen"
-            label="Examen"
-            value={users.examen}
-            id="examen"
-            />
-          </Grid> */}
-        
+          </Grid>        
           </Grid>
         <div style={{display: "flex", justifyContent:"space-between", marginTop:"2rem"}}>          
           <Button variant="contained" color="secondary" onClick={handleClose}>Cerrar</Button>         

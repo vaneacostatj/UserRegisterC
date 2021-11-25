@@ -179,52 +179,7 @@ const handleSubmit =(e)=>{
             id="FechEnd"
             />
           </Grid>
-         {/*  <Grid item xs={12} sm={6}>  
-          <InputLabel id="T3">Examenes medicos</InputLabel>
-          <Select
-                onChange={handleInputChange}
-                required
-                fullWidth
-                name="T3"
-                label="Examenes medicos"
-                value={users.T3}
-          >
-            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
-     
-          </Select>       
-          </Grid>
-          <Grid item xs={12} sm={3}>  
-
-             <InputLabel id="T4">Huella</InputLabel>
-          <Select
-                onChange={handleInputChange}
-                required
-                fullWidth
-                name="T4"
-                label="Huella"
-                value={users.T4}
-          >
-            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
-     
-          </Select>        
-          </Grid>
-          <Grid item xs={12} sm={3}>         
-          <InputLabel id="T5">Fotografia</InputLabel>
-          <Select
-                onChange={handleInputChange}
-                required
-                fullWidth
-                name="T5"
-                label="Fotografia"
-                value={users.T5}
-          >
-            <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
-     
-          </Select> 
-          </Grid> */}
+      
       
           </Grid>
         <div style={{display: "flex", justifyContent:"space-between", marginTop:"2rem"}}>          

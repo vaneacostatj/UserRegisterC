@@ -12,7 +12,7 @@ import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, order
 import { data as DatABaseF,}  from '../components/firebase'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditData from './EditData';
-
+import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
 
 
@@ -137,13 +137,31 @@ useEffect(()=>{
 
 
 //-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+const [q, setQ]=useState("");
+
+function search(row){
+  return row.filter(
+    (row) => 
+    row.firstName.toLowerCase().indexOf(q) > - 1 ||
+    row.lastName.toLowerCase().indexOf(q) > - 1 ||
+    row.categoria.toLowerCase().indexOf(q) > - 1  ||
+    row.FechInit.toLowerCase().indexOf(q) > - 1 ||
+    row.tipeUser.toLowerCase().indexOf(q) > - 1     
+    );
+}
+//-------------------------------------
 
     return (
         <>
         <br/>
             <h1 align="center" >USUARIOS CERTIFICADOS</h1>
-            
-
+            <div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<FilterListOutlinedIcon fontSize="small"/>&nbsp;&nbsp;<b>FILTRAR</b>&nbsp;&nbsp;&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text/" value={q} onChange={(e)=> setQ(e.target.value)}/>
+            </div>
+            <br/>
             <TableContainer component={Paper} >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -167,7 +185,7 @@ useEffect(()=>{
         </TableHead>
         <TableBody>
           
-        {UserCond.map((items) => (
+        {search(UserCond).map((items) => (
             <StyledTableRow key={items.document}>
               <StyledTableCell component="th" scope="row">
               {items.firstName}&nbsp;{items.lastName}

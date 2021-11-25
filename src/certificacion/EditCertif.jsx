@@ -189,7 +189,7 @@ const handleSubmit =(e)=>{
                 value={users.T3}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select>       
           </Grid>
@@ -205,7 +205,7 @@ const handleSubmit =(e)=>{
                 value={users.T4}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select>        
           </Grid>
@@ -220,7 +220,7 @@ const handleSubmit =(e)=>{
                 value={users.T5}
           >
             <MenuItem value={"Pendiente"}>Pendiente</MenuItem><br/>
-            <MenuItem value={"Entregado"}>Entregado</MenuItem>            
+            <MenuItem value={"Ok"}>Ok</MenuItem>            
      
           </Select> 
           </Grid>

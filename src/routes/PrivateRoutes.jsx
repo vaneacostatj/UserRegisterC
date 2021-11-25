@@ -11,6 +11,7 @@ import VistaTadmin from '../vistas/VistaTadmin';
 import VistaPadmin from '../vistas/VistaPadmin';
 import VistaCadmin from '../vistas/VistaCadmin';
 import VistaUadmin from '../vistas/VistaUadmin';
+import VistaGenerica from '../vistas/VistaGenerica';
 import VistaUserFinal from '../admin/VistaUserF'
 import { isAuthenticate } from './auth/authentication';
 // import { isAuthenticate } from './auth/authentication';
@@ -30,6 +31,7 @@ export const PrivateRoutes = (props) => {
             <HelperRoutesPrivate exact path="/PracCertif" component={VistaPcertif}/>
             <HelperRoutesPrivate exact path="/Admin" component={VistaA}/>
             <HelperRoutesPrivate exact path="/TeoAdmin" component={VistaTadmin}/>
+            <HelperRoutesPrivate exact path="/Recep" component={VistaGenerica}/>
             <HelperRoutesPrivate exact path="/PracAdmin" component={VistaPadmin}/>
             <HelperRoutesPrivate exact path="/CertifAdmin" component={VistaCadmin}/>
             <HelperRoutesPrivate exact path="/UserAdmin" component={VistaUadmin}/> 

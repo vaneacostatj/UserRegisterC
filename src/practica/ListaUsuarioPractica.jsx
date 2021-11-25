@@ -12,7 +12,7 @@ import { collection, doc, setDoc, deleteDoc, onSnapshot, query, updateDoc, order
 import { data as DatABaseF,}  from '../components/firebase'
 import EditPractica from './EditPractica';
 import PasoCertif from './PasoCertificacion';
-
+import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 
 
 
@@ -57,21 +57,6 @@ export const ClearUser = async (users)=>{
     const UpdateUserRef = doc(DatABaseF, "UserTeoria", updateDocument);
     await updateDoc(UpdateUserRef,{
       T1 : '0 Hrs',
-      T2 : '0 Hrs',
-      T3 : '0 Hrs',
-      T4 : '0 Hrs',
-      T5 : '0 Hrs',
-      T6 : '0 Hrs',
-      T7 : '0 Hrs',
-      T8 : '0 Hrs',
-      T9 : '0 Hrs',
-      T10: '0 Hrs',
-      T11 : '0 Hrs',
-      T12 : '0 Hrs',
-      T13 : '0 Hrs',
-      T14 : '0 Hrs',
-      T15 : '0 Hrs',
-      T16 : '0 Hrs', 
       examen: 'Pendiente',
     });
   } catch(e){
@@ -148,15 +133,32 @@ useEffect(()=>{
    console.log("actualiza en tiempo real")    
 },[])
 
+//-----------------------------------------------------------------------
 
+const [q, setQ]=useState("");
+
+function search(row){
+  return row.filter(
+    (row) => 
+    row.firstName.toLowerCase().indexOf(q) > - 1 ||
+    row.lastName.toLowerCase().indexOf(q) > - 1 ||
+    row.categoria.toLowerCase().indexOf(q) > - 1  ||
+    row.FechInit.toLowerCase().indexOf(q) > - 1 ||
+    row.tipeUser.toLowerCase().indexOf(q) > - 1     
+    );
+}
+//-------------------------------------
 //-----------------------------------------------------------------------
 
     return (
         <>
         
             <h1 align="center" >MODULO PRÁCTICO</h1>
-            
-
+            <div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<FilterListOutlinedIcon fontSize="small"/>&nbsp;&nbsp;<b>FILTRAR</b>&nbsp;&nbsp;&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text/" value={q} onChange={(e)=> setQ(e.target.value)}/>
+            </div>
+            <br/>
             <TableContainer component={Paper} >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -165,23 +167,9 @@ useEffect(()=>{
 
             <StyledTableCell>Nombre del Usuario</StyledTableCell>
             <StyledTableCell >Documento de identidad</StyledTableCell>
+            <StyledTableCell >Tipo de Usuario</StyledTableCell>
             <StyledTableCell align="center">Categoria</StyledTableCell>
-            <StyledTableCell align="center">1</StyledTableCell>
-            <StyledTableCell align="center">2</StyledTableCell>
-            <StyledTableCell align="center">3</StyledTableCell>
-            <StyledTableCell align="center">4</StyledTableCell>
-            <StyledTableCell align="center">5</StyledTableCell>
-            <StyledTableCell align="center">6</StyledTableCell>
-            <StyledTableCell align="center">7</StyledTableCell>
-            <StyledTableCell align="center">8</StyledTableCell>
-            <StyledTableCell align="center">9</StyledTableCell>
-            <StyledTableCell align="center">10</StyledTableCell>
-            <StyledTableCell align="center">11</StyledTableCell>
-            <StyledTableCell align="center">12</StyledTableCell>
-            <StyledTableCell align="center">13</StyledTableCell>
-            <StyledTableCell align="center">14</StyledTableCell>
-            <StyledTableCell align="center">15</StyledTableCell>
-           
+            <StyledTableCell align="center">Horas</StyledTableCell>
             <StyledTableCell align="center">Examen</StyledTableCell>
             <StyledTableCell align="center">Acciones</StyledTableCell>
 
@@ -190,29 +178,15 @@ useEffect(()=>{
         </TableHead>
         <TableBody>
           
-        {UserCond.map((items) => (
+        {search(UserCond).map((items) => (
             <StyledTableRow key={items.document}>
               <StyledTableCell component="th" scope="row">
               {items.firstName}&nbsp;{items.lastName}
               </StyledTableCell>
               <StyledTableCell align="center">{items.document}</StyledTableCell>
-              <StyledTableCell align="center">{items.categoria}</StyledTableCell>
-              <StyledTableCell align="center">{items.T1}</StyledTableCell>
-              <StyledTableCell align="center">{items.T2}</StyledTableCell>
-              <StyledTableCell align="center">{items.T3}</StyledTableCell>
-              <StyledTableCell align="center">{items.T4}</StyledTableCell>
-              <StyledTableCell align="center">{items.T5}</StyledTableCell>
-              <StyledTableCell align="center">{items.T6}</StyledTableCell>
-              <StyledTableCell align="center">{items.T7}</StyledTableCell>
-              <StyledTableCell align="center">{items.T8}</StyledTableCell>
-              <StyledTableCell align="center">{items.T9}</StyledTableCell>
-              <StyledTableCell align="center">{items.T10}</StyledTableCell>
-              <StyledTableCell align="center">{items.T11}</StyledTableCell>
-              <StyledTableCell align="center">{items.T12}</StyledTableCell>
-              <StyledTableCell align="center">{items.T13}</StyledTableCell>
-              <StyledTableCell align="center">{items.T14}</StyledTableCell>
-              <StyledTableCell align="center">{items.T15}</StyledTableCell>
-             
+              <StyledTableCell align="center">{items.tipeUser}</StyledTableCell>
+              <StyledTableCell align="center">{items.categoria}</StyledTableCell>          
+              <StyledTableCell align="center">{items.T1}</StyledTableCell>             
               <StyledTableCell align="center">{items.examen}</StyledTableCell>
               <StyledTableCell align="center">
               <Button border="none"          
