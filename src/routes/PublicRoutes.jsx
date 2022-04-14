@@ -14,7 +14,7 @@ export const PublicRoutes = () => {
             <HelperRoutePublic exact path="/" component={VistaUserFinal}/>
             <HelperRoutePublic exact path="/SignIn" component={SignIn}/>
             <Route exact path="*" render={()=>{
-                return <Redirect to={isAuth !== "null" ? "/Home" : "/signIn"}/>
+                return <Redirect to={isAuth !== "null" || isAuth !== "" ? "/Home" : "/signIn"}/>
             }}/>           
         </Switch>
     )

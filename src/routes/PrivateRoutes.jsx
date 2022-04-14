@@ -36,7 +36,7 @@ export const PrivateRoutes = (props) => {
             <HelperRoutesPrivate exact path="/CertifAdmin" component={VistaCadmin}/>
             <HelperRoutesPrivate exact path="/UserAdmin" component={VistaUadmin}/> 
             <Route exact path="*" render={()=>{
-                 return <Redirect to={isAuth !== "null" ? "/Home" : "/signIn"}/>
+                 return <Redirect to={isAuth !== "null" || isAuth !== "" ? "/Home" : "/signIn"}/>
             }}/>  
         </Switch>
     )

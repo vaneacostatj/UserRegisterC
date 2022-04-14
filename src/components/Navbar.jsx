@@ -46,16 +46,16 @@ export default function Navbar() {
   const RedirecUser =()=>{
     
    console.log(userid, "entrega usuario");
-   if (userid === "gtsFTbKpe1f6ivhsVGzc17O2AvW2")
+   if (userid === "X4nLRw7QiJgt2hY8qYZLkO68T0u1")
        {history.push("/Admin"); return }
       
-   if (userid === "uRwDeDgzZHWZ7TRPyAOTSdDRuPU2" ) 
+   if (userid === "XZfdR31sZNeR8VXYi2PhRhdQJ4p1" ) 
       {history.push("/Certif"); return}
       
-   if (userid === "c8pWFGi61gR24ELguII2S8ug5952")   
+   if (userid === "FBHwzUXEXSWUmJ9sY0UooZord6P2")   
        {history.push("/Practica"); return}
       
-   if (userid === "PnAAOTDR6vPbaABZNucSuEHx8Df2")   
+   if (userid === "ltpa6aAVFiZ55WzvKd3UbIvA2G43")   
        {history.push("/Teoria"); return} 
     else  
         { history.push("/");}        
@@ -77,11 +77,11 @@ export default function Navbar() {
           >
            &nbsp; <HomeIcon/> &nbsp; 
           </IconButton>
-          <a href="http://www.conducimos.com.co/">
+          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Conducimos
+            HOME
           </Typography>
-          </a>
+          
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>            
           </Typography>
