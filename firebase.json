@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "ctrl-hrs-conducimos-syv",
-    "public": "build",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
