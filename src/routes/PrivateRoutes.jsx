@@ -12,7 +12,8 @@ import VistaPadmin from '../vistas/VistaPadmin';
 import VistaCadmin from '../vistas/VistaCadmin';
 import VistaUadmin from '../vistas/VistaUadmin';
 import VistaGenerica from '../vistas/VistaGenerica';
-import VistaUserFinal from '../admin/VistaUserF'
+import VistaUserFinal from '../admin/VistaUserF';
+import Presentation from '../vistas/Presentation';
 import { isAuthenticate } from './auth/authentication';
 // import { isAuthenticate } from './auth/authentication';
 // import { useStateValue } from '../StateProvider';
@@ -23,6 +24,7 @@ export const PrivateRoutes = (props) => {
     var isAuth = sessionStorage.getItem('userAct');
     return (
         <Switch>
+            <HelperRoutesPrivate exact path="/" component={Presentation}/>
             <HelperRoutesPrivate exact path="/Home" component={VistaUserFinal}/>
             <HelperRoutesPrivate exact path="/Teoria" component={VistaT}/>
             <HelperRoutesPrivate exact path="/Practica" component={VistaP}/>
@@ -36,7 +38,7 @@ export const PrivateRoutes = (props) => {
             <HelperRoutesPrivate exact path="/CertifAdmin" component={VistaCadmin}/>
             <HelperRoutesPrivate exact path="/UserAdmin" component={VistaUadmin}/> 
             <Route exact path="*" render={()=>{
-                 return <Redirect to={isAuth !== "null" || isAuth !== "" ? "/Home" : "/signIn"}/>
+                 return <Redirect to={isAuth !== "null" || isAuth !== "" ? "/" : "/Home"}/>
             }}/>  
         </Switch>
     )

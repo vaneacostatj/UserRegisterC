@@ -1,3 +1,5 @@
+import Stack from '@mui/material/Stack';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,6 +12,7 @@ import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../Reducer';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import HomeIcon from '@mui/icons-material/Home';
+
 
 export default function Navbar() {
   const [{user}, dispatch] = useStateValue();
@@ -58,14 +61,14 @@ export default function Navbar() {
    if (userid === "ltpa6aAVFiZ55WzvKd3UbIvA2G43")   
        {history.push("/Teoria"); return} 
     else  
-        { history.push("/");}        
+        { history.push("/Home");}        
   }
 
 
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" color="secondary">
         <Toolbar>
           <IconButton
             size="large"
